@@ -46,13 +46,13 @@ void Game::Run()
 	Player player;
 
 	const std::function<void()> bar = foo;
-	auto* observer = new Observer(bar);
+	Observer observer(bar);
+	Observer* observer_ptr = &observer;
 	GEvent gevent;
-	gevent.Subscribe(observer);
+	gevent.Subscribe(observer_ptr);
 	gevent.InvokeAllEvents();
-	gevent.Unsubscribe(observer);
+	gevent.Unsubscribe(observer_ptr);
 	gevent.InvokeAllEvents();
-	delete observer;
 	while (true)
 	{
 		clock.tick();
