@@ -27,15 +27,7 @@ Game::Game(SDL_Renderer* renderer)
 
 Game::~Game() = default;
 
-void foo()
-{
-    std::cout << "hi" << '\n';
-}
 
-void foo2()
-{
-	std::cout << "hi there" << '\n';
-}
 
 void Game::Run()
 {
@@ -45,7 +37,7 @@ void Game::Run()
 	InputManager inputManager(event);
 	Player player;
 
-	const std::function<void()> bar = foo;
+	const std::function<void()> bar = [ObjectPtr = &player] { ObjectPtr->EventTest(); };
 	Observer observer(bar);
 	Observer* observer_ptr = &observer;
 	GEvent gevent;
@@ -84,7 +76,7 @@ void Game::Run()
 	}
 }
 
-void Game::Draw()
+void Game::Draw() const
 {
 	// Draw
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);

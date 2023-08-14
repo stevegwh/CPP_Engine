@@ -16,6 +16,11 @@ Player::Player()
 	scale->h = 50;
 }
 
+void Player::EventTest()
+{
+	std::cout << "Hello, world" << std::endl;
+}
+
 Player::~Player()
 {
 	delete rect;

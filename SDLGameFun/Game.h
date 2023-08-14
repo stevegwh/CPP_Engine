@@ -13,6 +13,6 @@ public:
 	Game(SDL_Renderer* renderer);
 	~Game();
 	void Run();
-	void Draw();
+	void Draw() const;
 };
 

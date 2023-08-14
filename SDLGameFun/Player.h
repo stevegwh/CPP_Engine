@@ -10,7 +10,8 @@ private:
     Scale* scale;
 public:
     Player();
-    ~Player();
+    ~Player() override;
+    void EventTest();
     void Update(float deltaTime) override;
     void Draw(SDL_Renderer* renderer) override;
     void SetPosition(float x, float  y) override;
